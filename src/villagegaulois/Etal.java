@@ -1,87 +1,61 @@
 package villagegaulois;
 
 import personnages.Gaulois;
-import produit.Produit;
+import produit.IProduit;
 
-public class Etal <P extends Produit> implements IEtal {
-	private Gaulois vendeur;
-	private Produit produit;
-	private int quantiteDebutMarche;
-	private int quantite;
-	private boolean etalOccupe = false;
+public class Etal<T extends IProduit> {
+    private Gaulois vendeur;
+    private T[] produits;
+    private int nbProduit;
+    private double prixProduit;
 
-	@Override
-	public boolean isEtalOccupe() {
-		return etalOccupe;
-	}
+    // Constructeur
+    public Etal(Gaulois vendeur, T[] produits, int nbProduit, double prixProduit) {
+        this.vendeur = vendeur;
+        this.produits = produits;
+        this.nbProduit = nbProduit;
+        this.prixProduit = prixProduit;
+    }
 
-	@Override
-	public Gaulois getVendeur() {
-		return vendeur;
-	}
+    // Getters et Setters
+    public Gaulois getVendeur() {
+        return vendeur;
+    }
 
-	@Override
-	public int getQuantite() {
-		return quantite;
-	}
+    public void setVendeur(Gaulois vendeur) {
+        this.vendeur = vendeur;
+    }
 
-	@Override
-	public Produit getProduit() {
-		return produit;
-	}
+    public T[] getProduits() {
+        return produits;
+    }
 
-	@Override
-	public void occuperEtal(Gaulois vendeur, Produit produit, int quantite) {
-		this.vendeur = vendeur;
-		this.produit = (P)produit;
-		this.quantite = quantite;
-		quantiteDebutMarche = quantite;
-		etalOccupe = true;
-	}
+    public void setProduits(T[] produits) {
+        this.produits = produits;
+    }
 
-	@Override
-	public boolean contientProduit(Produit produit) {
-		return this.produit.equals(produit);
-	}
+    public int getNbProduit() {
+        return nbProduit;
+    }
 
-	@Override
-	public int acheterProduit(int quantiteAcheter) {
-		if (quantite == 0) {
-			quantiteAcheter = 0;
-		}
-		if (quantiteAcheter > quantite) {
-			quantiteAcheter = quantite;
-		}
-		if (etalOccupe) {
-			quantite -= quantiteAcheter;
-		}
-		return quantiteAcheter;
-	}
+    public void setNbProduit(int nbProduit) {
+        this.nbProduit = nbProduit;
+    }
 
-	@Override
-	public void libererEtal() {
-		etalOccupe = false;
-	}
+    public double getPrixProduit() {
+        return prixProduit;
+    }
 
-	/**
-	 * 
-	 * @param produit
-	 * @return donneesVente est un tableau de chaine contenant [0] : un boolean
-	 *         indiquant si l'étal est occupé [1] : nom du vendeur [2] : produit
-	 *         vendu [2] : quantité de produit à vendre au début du marché [4] :
-	 *         quantité de produit vendu
-	 */
-	@Override
-	public String[] etatEtal() {
-		String[] donneesVente = new String[5];
-		donneesVente[0] = String.valueOf(etalOccupe);
-		if (etalOccupe) {
-			donneesVente[1] = vendeur.getNom();
-			donneesVente[2] = String.valueOf(produit);
-			donneesVente[3] = String.valueOf(quantiteDebutMarche);
-			donneesVente[4] = String.valueOf(quantiteDebutMarche - quantite);
-		}
-		return donneesVente;
-	}
+    public void setPrixProduit(double prixProduit) {
+        this.prixProduit = prixProduit;
+    }
+    
+    
+    public void installerVendeur(Gaulois vendeur, T[] produits, double prix) {
+        this.vendeur = vendeur;
+        this.produits = produits;
+        this.nbProduit = produits.length;
+        this.prixProduit = prix;
+    }
 
 }

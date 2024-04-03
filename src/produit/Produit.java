@@ -1,6 +1,6 @@
 package produit;
 
-public class Produit {
+public class Produit implements IProduit {
     private String nom;
     private Unite unite;
 
@@ -9,19 +9,23 @@ public class Produit {
         this.unite = unite;
     }
 
-    public String getNom() {
+    @Override
+	public String getNom() {
         return nom;
     }
 
-    public Unite getUnite() {
+    @Override
+	public Unite getUnite() {
         return unite;
     }
 
-    public void setDescription(String description) {
+    @Override
+	public void setDescription(String description) {
         // Méthode vide à remplir dans les sous-classes
     }
 
-    public String decrireProduit() {
+    @Override
+	public String decrireProduit() {
         // Méthode de description du produit
         return "Description du produit à définir dans les sous-classes.";
     }
