@@ -1,29 +1,28 @@
 package produit;
 
 public class Produit {
-	 private String nom;
-	 //manque unité
+    private String nom;
+    private Unite unite;
 
-	 public Produit(String nom) {
-	     this.nom = nom;
-	 }
+    public Produit(String nom, Unite unite) {
+        this.nom = nom;
+        this.unite = unite;
+    }
 
-	 public String getNom() {
-	     return nom;
-	 }
+    public String getNom() {
+        return nom;
+    }
 
-	 public String description() {
-	     throw new UnsupportedOperationException("La méthode description doit être implémentée dans les sous-classes.");
-	 }
+    public Unite getUnite() {
+        return unite;
+    }
 
+    public void setDescription(String description) {
+        // Méthode vide à remplir dans les sous-classes
+    }
 
- 	public static void main(String[] args) {
- 		Poisson poisson = new Poisson("mardi");
- 		System.out.println(poisson.getNom()); // Sortie : poisson
- 		System.out.println(poisson.description()); // Sortie : Poisson pêché mardi.
-
- 		Sanglier sanglier = new Sanglier(15, "Obélix");
- 		System.out.println(sanglier.getNom()); // Sortie : sanglier
- 		System.out.println(sanglier.description()); // Sortie : Sanglier de 15.0 kg chassé par Obélix.
- 	}
+    public String decrireProduit() {
+        // Méthode de description du produit
+        return "Description du produit à définir dans les sous-classes.";
+    }
 }
