@@ -3,10 +3,10 @@ package produit;
 import personnages.Gaulois;
 
 public class Sanglier extends Produit {
-    private double poids;
+    private int poids;
     private Gaulois chasseur;
 
-    public Sanglier(double poids, Gaulois chasseur) {
+    public Sanglier(int poids, Gaulois chasseur) {
         super("sanglier", Unite.KILOGRAMME);
         this.poids = poids;
         this.chasseur = chasseur;
