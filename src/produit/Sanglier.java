@@ -1,10 +1,10 @@
 package produit;
 
 public class Sanglier extends Produit {
-	private double poids;
+	private int poids;
 	private String chasseur;
 
-	public Sanglier(double poids, String chasseur) {
+	public Sanglier(int poids, String chasseur) {
 	   super("sanglier");
 	   this.poids = poids;
 	   this.chasseur = chasseur;
