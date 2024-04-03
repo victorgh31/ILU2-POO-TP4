@@ -10,6 +10,6 @@ public class Poisson extends Produit {
 
 	@Override
 	public String description() {
-		return "Poisson pêché " + datePeche + ".";
+		return this.getNom() + " pêché " + datePeche + ".";
 	}
 }

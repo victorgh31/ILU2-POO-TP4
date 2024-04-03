@@ -2,6 +2,7 @@ package produit;
 
 public class Produit {
 	 private String nom;
+	 //manque unité
 
 	 public Produit(String nom) {
 	     this.nom = nom;
