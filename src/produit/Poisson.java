@@ -1,15 +1,23 @@
 package produit;
 
 public class Poisson extends Produit {
-    private String datePeche;
+    private String date;
 
-    public Poisson(String datePeche) {
-        super("poisson");
-        this.datePeche = datePeche;
-    }
+	public Poisson(String date) {
+		super("poisson", Unite.PAR_PIECE.getUnit());
+		this.date = date;
+	}
+	
+	public String getDescription() {
+		StringBuilder result = new StringBuilder();
+		result.append("poisson pêchés ");
+		result.append(date);
+		result.append(".");
+		return result.toString();
+	}
 
-    @Override
-    public String description() {
-        return this.getNom() + " pêché " + datePeche + ".";
-    }
+	@Override
+	public double calculerPrix(double prix) {
+		return prix;
+	}
 }
