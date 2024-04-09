@@ -4,10 +4,12 @@ public interface IProduit {
 
 	String getNom();
 
-	Unite getUnite();
+	String description();
 
-	void setDescription(String description);
-
-	String decrireProduit();
+	String getUnite();
+	
+	double calculerPrix(int prix);
+	
+	void setUnite(String unite);
 
 }

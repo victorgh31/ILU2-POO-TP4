@@ -4,17 +4,12 @@ public class Poisson extends Produit {
     private String datePeche;
 
     public Poisson(String datePeche) {
-        super("poisson", Unite.PAR_PIECE);
-        this.datePeche = datePeche;
-    }
-    
-    @Override
-    public void setDescription(String datePeche) {
+        super("poisson");
         this.datePeche = datePeche;
     }
 
     @Override
-    public String decrireProduit() {
+    public String description() {
         return this.getNom() + " pêché " + datePeche + ".";
     }
 }

@@ -1,32 +1,35 @@
 package produit;
 
-public class Produit implements IProduit {
-    private String nom;
-    private Unite unite;
+public abstract class Produit implements IProduit {
+	private String nom;
+	private String unite = "kg";
+	
+	@Override
+	public void setUnite(String unite) {
+		this.unite = unite;
+	}
 
-    public Produit(String nom, Unite unite) {
-        this.nom = nom;
-        this.unite = unite;
-    }
-
-    @Override
+	public Produit(String nom) {
+		this.nom = nom;
+	}
+	
+	@Override
 	public String getNom() {
-        return nom;
-    }
+		return nom;
+	}
+	
+	@Override
+	public abstract String description();
 
-    @Override
-	public Unite getUnite() {
-        return unite;
-    }
+	@Override
+	public String getUnite() {
+		return unite;
+	}
+	
+	@Override
+	public double calculerPrix(int prix) {
+		return prix;
+	}
 
-    @Override
-	public void setDescription(String description) {
-        // Méthode vide à remplir dans les sous-classes
-    }
-
-    @Override
-	public String decrireProduit() {
-        // Méthode de description du produit
-        return "Description du produit à définir dans les sous-classes.";
-    }
+	
 }
