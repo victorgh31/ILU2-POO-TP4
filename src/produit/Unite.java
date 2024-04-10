@@ -21,3 +21,9 @@ public enum Unite {
 		}
 	}
 }
+
+
+// Revoir la définition de l'énumération avec ce qu'a expliqué le prof au tableau
+//	Unite(String unite) {
+//		this.unite = unite;
+//	}
